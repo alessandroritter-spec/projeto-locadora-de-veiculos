@@ -1,67 +1,79 @@
-// 1. Calculadora Interativa da Regra de Cobrança (C = 60x + 40)
+// 1. Cálculo dos Problemas da Regra de Cobrança C(x) = 60x + 40
 
-// Problema Direto: calcula o valor a pagar com base nos dias (x)
-function calcularCusto() {
-    const diasInput = document.getElementById('dias').value;
-    const resultadoElement = document.getElementById('resultado-custo');
+// Problema Direto: Dado o número de dias (x), calcula o custo (C)
+function resolverDireto() {
+    const diasInput = document.getElementById('dias-input').value;
+    const resElement = document.getElementById('res-direto');
     
-    if (diasInput === '' || diasInput < 0) {
-        resultadoElement.innerText = "Digite um número de dias válido!";
+    if (diasInput === '' || diasInput <= 0) {
+        resElement.innerText = "Por favor, insira um número válido de dias!";
         return;
     }
     
     const x = parseFloat(diasInput);
-    const custo = 60 * x + 40;
-    resultadoElement.innerText = `Custo Total: R$ ${custo.toFixed(2)}`;
+    const C = 60 * x + 40;
+    resElement.innerText = `Custo Total: R$ ${C.toFixed(2).replace('.', ',')}`;
 }
 
-// Problema Inverso: calcula os dias com base no valor pago (C)
-function calcularDias() {
-    const custoInput = document.getElementById('custo').value;
-    const resultadoElement = document.getElementById('resultado-dias');
+// Problema Inverso: Dado o custo (C), calcula a quantidade de dias (x)
+function resolverInverso() {
+    const custoInput = document.getElementById('custo-input').value;
+    const resElement = document.getElementById('res-inverso');
     
     if (custoInput === '' || custoInput < 40) {
-        resultadoElement.innerText = "O valor mínimo é R$ 40,00 (taxa fixa).";
+        resElement.innerText = "O valor mínimo é R$ 40,00 (taxa fixa)!";
         return;
     }
     
     const C = parseFloat(custoInput);
-    const dias = (C - 40) / 60;
-    resultadoElement.innerText = `Dias de aluguel: ${dias.toFixed(1)} dias`;
+    const x = (C - 40) / 60;
+    resElement.innerText = `Tempo de Aluguel: ${x.toFixed(1)} dias`;
 }
 
-// 2. Sistema de Stickers Arrastáveis (Arraste os carros pela tela)
+// 2. Sistema de Drag & Drop para os Stickers Arrastáveis
 document.addEventListener('DOMContentLoaded', () => {
-    const stickers = document.querySelectorAll('.floating-sticker, .sticker, .mini-car');
+    const stickers = document.querySelectorAll('.draggable-sticker');
     
     stickers.forEach(sticker => {
-        sticker.style.cursor = 'grab';
-        
-        sticker.addEventListener('mousedown', (e) => {
+        let isDragging = false;
+        let offsetX = 0;
+        let offsetY = 0;
+
+        function startDrag(e) {
+            isDragging = true;
             sticker.style.cursor = 'grabbing';
-            let shiftX = e.clientX - sticker.getBoundingClientRect().left;
-            let shiftY = e.clientY - sticker.getBoundingClientRect().top;
+            
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+            
+            const rect = sticker.getBoundingClientRect();
+            offsetX = clientX - rect.left;
+            offsetY = clientY - rect.top;
+        }
 
-            sticker.style.position = 'absolute';
-            sticker.style.zIndex = 1000;
+        function moveDrag(e) {
+            if (!isDragging) return;
+            
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+            
+            sticker.style.left = `${clientX - offsetX}px`;
+            sticker.style.top = `${clientY - offsetY}px`;
+        }
 
-            function moveAt(pageX, pageY) {
-                sticker.style.left = pageX - shiftX + 'px';
-                sticker.style.top = pageY - shiftY + 'px';
-            }
+        function stopDrag() {
+            isDragging = false;
+            sticker.style.cursor = 'grab';
+        }
 
-            function onMouseMove(event) {
-                moveAt(event.pageX, event.pageY);
-            }
+        // Eventos de Mouse
+        sticker.addEventListener('mousedown', startDrag);
+        document.addEventListener('mousemove', moveDrag);
+        document.addEventListener('mouseup', stopDrag);
 
-            document.addEventListener('mousemove', onMouseMove);
-
-            document.addEventListener('mouseup', () => {
-                document.removeEventListener('mousemove', onMouseMove);
-                sticker.style.cursor = 'grab';
-            }, { once: true });
-        });
-
-        sticker.ondragstart = () => false;
+        // Eventos de Toque (Mobile/Touchscreen)
+        sticker.addEventListener('touchstart', startDrag);
+        document.addEventListener('touchmove', moveDrag);
+        document.addEventListener('touchend', stopDrag);
     });
 });
