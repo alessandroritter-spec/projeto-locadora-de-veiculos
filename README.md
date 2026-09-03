@@ -1,61 +1,54 @@
-# 🚗✨ Projeto Locadora de Veículos - Estilo Y2K Flash Game 🏎️💖
+# 🏎️✨ White Mustang - Locadora de Veículos Vintage 🍒🌹
 
-> **Um site interativo inspirado na era de ouro dos jogos em Flash dos anos 2000, desenvolvido para apresentar o projeto escolar/acadêmico de modelagem matemática e gestão de uma Locadora de Veículos!**
+> **Um projeto interativo inspirado na estética *cinematic retro* (Lana Del Rey Y2K vibe), desenvolvido para apresentar o projeto escolar/acadêmico de modelagem matemática de uma Locadora de Veículos!**
 
 ---
 
 ## 📸 Sobre o Projeto
 
-Este projeto une **Matemática Aplicada (Função Afim)** e **Desenvolvimento Web Nostálgico**. A proposta visual foi inspirada nos clássicos jogos em Flash dos anos 2000, contando com:
-- Background marcante em **glitter rosa choque** ✨
-- Bordas neon estilo cyber/Y2K 🌈
-- **Stickers interativos** de carros arrastáveis pela tela 🚗💨
-- Calculadora matemática integrada para resolver os problemas de cobrança em tempo real!
+O **White Mustang** une **Matemática Aplicada (Função Afim)** e **Design Web Nostálgico**. A proposta visual conta com:
+- Fundo em **glitter rosa choque com detalhes em vinho/cereja** ✨
+- Cards estilo **fotografias Polaroid** com pinos de mural 📌
+- **Stickers interativos** de Mustang, cerejas, rosas e rádio vintage arrastáveis 🚗
+- Calculadora interativa para a resolução dos problemas de cobrança em tempo real!
 
 ---
 
 ## 📌 As 7 Etapas do Projeto
 
-O site organiza e apresenta detalhadamente todas as diretrizes exigidas no trabalho original:
-
-1. **🏷️ Nome da Locadora:** Escolha de um nome criativo e marcante para a marca.
-2. **🎯 Público-Alvo:** Definição do perfil dos clientes principais.
-3. **🚘 Tipo de Veículos:** Categorias de veículos disponíveis na frota (econômicos, SUVs, utilitários, etc.).
+1. **🏷️ Nome da Locadora:** *White Mustang Locadora de Veículos*
+2. **🎯 Público-Alvo:** Jovens adultos, almas poéticas, criadores de conteúdo e apaixonados pela cultura retro.
+3. **🚘 Veículos Antigos (Frota Clássica):**
+   - Ford Mustang 1969 Hardtop
+   - Dodge Charger R/T 1970
+   - Chevrolet Impala Convertível 1964
+   - VW Fusca Vintage Cherry 1972
 4. **📱 4 Serviços do Aplicativo:**
-   - 📅 **Reserva Online:** Agendamento rápido e sem filas.
-   - 🛡️ **Seguro Faça Fácil:** Proteção simplificada contra imprevistos.
-   - 📍 **Rastreamento do Veículo:** Monitoramento em tempo real via GPS.
-   - 💬 **Atendimento 24h:** Suporte ao cliente a qualquer hora do dia.
-5. **🧮 Regra de Cobrança:** Definida pela Função Linear (Afim):
-   $$C = 60x + 40$$
-   - **x**: quantidade de dias alugados.
-   - **60**: valor da diária (R$).
-   - **40**: taxa fixa de serviço/abertura de contrato (R$).
-6. **📈 Gráfico da Função:** Representação gráfica da relação diária vs. custo em papel quadriculado/digital.
+   - 📅 **Reserva Online:** Agendamento fácil via aplicativo.
+   - 🛡️ **Seguro Fácil:** Proteção simplificada para viajar sem preocupação.
+   - 📍 **Rastreamento 24h:** GPS inteligente e discreto no clássico.
+   - 💬 **Atendimento 24h:** Suporte atencioso a qualquer hora.
+5. **🧮 Regra de Cobrança:** Definida pela Função Afim:
+   $$C(x) = 60x + 40$$
+   - $x$: quantidade de dias alugados.
+   - $R\$ 60,00$: valor da diária do carro antigo.
+   - $R\$ 40,00$: taxa fixa de higienização e preparação vintage.
+6. **📈 Gráfico da Função:** Gráfico vetorial SVG em papel quadriculado ilustrando a reta de crescimento do custo.
 7. **❓ Dois Problemas (Calculadora Interativa):**
-   - **Problema Direto:** Dado o número de dias ($x$), calcula o valor total a ser pago ($C$).
-     - *Exemplo:* $x = 3 \text{ dias} \Rightarrow C = 60(3) + 40 = \text{R\$ } 220,00$.
-   - **Problema Inverso:** Dado o valor pago ($C$), calcula a quantidade de dias ($x$).
-     - *Exemplo:* $C = \text{R\$ } 220,00 \Rightarrow 220 = 60x + 40 \Rightarrow x = 3 \text{ dias}$.
+   - **Problema Direto:** Para 3 dias de aluguel: $C(3) = 60(3) + 40 = R\$ 220,00$.
+   - **Problema Inverso:** Para uma fatura de R$ 220,00: $220 = 60x + 40 \Rightarrow x = 3 \text{ dias}$.
 
 ---
 
 ## 🛠️ Tecnologias Utilizadas
 
-- **HTML5:** Estruturação semântica e acessível.
-- **CSS3:** Estilização retro Y2K, efeitos de luz neon, layouts flexíveis/grid e fundos decorativos.
-- **JavaScript (ES6+):** 
-  - Cálculo dinâmico dos problemas direto e inverso da função afim.
-  - Sistema de **Drag & Drop** (arrastar e soltar) para os stickers de veículos.
-- **GitHub Pages:** Hospedagem gratuita e publicação rápida do site na web.
+- **HTML5:** Estrutura semântica e acessível.
+- **CSS3:** Efeitos de glitter, tipografia vintage, grid responsivo e estilo polaroid.
+- **JavaScript:** Lógica de cálculo da função e movimentação dos stickers arrastáveis.
+- **GitHub Pages:** Hospedagem direta do site.
 
 ---
 
-## 📂 Estrutura de Arquivos
+## 🏆 Mensagem de Encerramento
 
-```text
-.
-├── index.html       # Estrutura principal da página
-├── style.css        # Estilos, efeito neon, glitter e layout
-├── script.js        # Lógica da calculadora e movimentação dos stickers
-└── README.md        # Documentação do repositório
+> *"TRABALHO EM EQUIPE É A CHAVE DA VITÓRIA! PLANEJAR, CALCULAR E ACELERAR RUMO AO SUCESSO!"* 🏁🏎️
