@@ -1,172 +1,336 @@
-/* Configurações Básicas */
-body, html {
+/* Reset e Fontes Vintage */
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    height: 100%;
-    font-family: 'Comic Sans MS', cursive, sans-serif; /* Fonte estilo flash game */
-    overflow: hidden; /* Impede rolagem da página inteira */
 }
 
-/* Fundo de Glitter Rosa Choque */
 body {
-    /* SUBSTITUA ESTA URL PELA SUA IMAGEM DE GLITTER */
-    background-image: url('URL_DA_SUA_IMAGEM_DE_GLITTER.jpg'); 
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #2b0314;
+    background-image: 
+        radial-gradient(#ff69b4 15%, transparent 16%),
+        radial-gradient(#c70039 15%, transparent 16%);
+    background-size: 60px 60px;
+    background-position: 0 0, 30px 30px;
+    color: #2b000e;
+    min-height: 100vh;
+    padding: 20px 10px;
+    position: relative;
+    overflow-x: hidden;
 }
 
-/* Container Principal do "Jogo" */
-.game-container {
-    width: 90vw;
-    max-width: 1000px;
-    height: 90vh;
-    margin: 5vh auto;
-    background-color: rgba(255, 255, 255, 0.8); /* Fundo branco semi-transparente para o conteúdo */
-    border: 10px solid #00ffff; /* Borda Neon Azul */
+/* Efeito Glitter Rosa Choque / Vintage Overlay */
+.glitter-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle, rgba(255,105,180,0.2) 0%, rgba(139,0,0,0.4) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Container Principal */
+.vintage-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    background-color: rgba(253, 246, 240, 0.92);
+    border: 8px solid #c70039;
     border-radius: 20px;
-    box-shadow: 0 0 20px #00ffff, inset 0 0 10px #00ffff;
-    padding: 20px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    position: relative; /* Para stickers flutuantes */
+    box-shadow: 0 0 30px rgba(255, 20, 147, 0.6), inset 0 0 15px #ffb6c1;
+    padding: 25px;
+    position: relative;
+    z-index: 2;
 }
 
-/* Título */
-.main-title {
+/* Header Lana Del Rey Style */
+.main-header {
     text-align: center;
-    color: #ff00ff; /* Rosa Choque */
-    text-shadow: 2px 2px 0 #000, 0 0 10px #ff00ff;
-    margin-bottom: 20px;
+    border-bottom: 3px dashed #c70039;
+    padding-bottom: 20px;
+    margin-bottom: 25px;
 }
 
-.main-title h1 {
-    font-size: 2.5em;
-    margin: 10px 0;
+.cherry-tag {
+    font-family: 'Special Elite', cursive;
+    background-color: #8b0000;
+    color: #fff0f5;
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.main-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: #8b0000;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 0px #ffb6c1;
+}
+
+.main-header h2 {
+    font-family: 'Special Elite', cursive;
+    color: #c70039;
+    font-size: 1.3rem;
+    margin-top: 5px;
+}
+
+.tagline {
+    font-style: italic;
+    color: #555;
+    margin-top: 8px;
+    font-size: 1rem;
 }
 
 .stars {
-    color: #ffff00;
-    font-size: 1.5em;
+    color: #ff1493;
+    font-size: 1.4rem;
+    margin-top: 5px;
 }
 
-/* Grid das Etapas */
+/* Grid de Cards */
 .steps-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    gap: 15px;
-    flex-grow: 1;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
 }
 
-/* Estilo dos Cards (Etapas) */
-.step-card {
-    background-color: #f0f0f0;
-    border: 4px solid #000;
+/* Estilo Polaroid Card Vintage */
+.polaroid-card {
+    background: #fff;
+    border: 1px solid #e0d0d0;
     border-radius: 10px;
-    padding: 10px;
-    position: relative; /* Para stickers dentro dos cards */
-    display: flex;
-    flex-direction: column;
+    padding: 18px;
+    box-shadow: 5px 8px 15px rgba(0,0,0,0.15);
+    position: relative;
+    transition: transform 0.3s ease;
 }
 
-.step-header {
-    background-color: #ffff00; /* Amarelo */
-    color: #000;
-    font-weight: bold;
-    padding: 5px;
-    border-bottom: 2px solid #000;
-    border-radius: 5px 5px 0 0;
-    margin: -10px -10px 10px -10px;
+.polaroid-card:hover {
+    transform: translateY(-5px) rotate(-1deg);
+}
+
+.pin {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.2rem;
+}
+
+.card-header {
+    font-family: 'Special Elite', cursive;
+    font-size: 0.9rem;
+    color: #8b0000;
+    border-bottom: 2px solid #ffb6c1;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
     display: flex;
     align-items: center;
+    gap: 8px;
 }
 
-.step-num {
-    background-color: #000;
-    color: #fff;
+.badge {
+    background-color: #8b0000;
+    color: white;
+    padding: 2px 8px;
     border-radius: 50%;
-    width: 25px;
-    height: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 10px;
-    font-size: 0.9em;
+    font-size: 0.8rem;
 }
 
-/* Elementos Específicos */
-.chalkboard {
-    background-color: #333;
-    color: #fff;
-    font-family: 'Courier New', monospace;
+.polaroid-card h3 {
+    font-family: 'Playfair Display', serif;
+    color: #8b0000;
+    margin-bottom: 8px;
+    font-size: 1.2rem;
+}
+
+.polaroid-card p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: #444;
+}
+
+.card-footer-quote {
+    font-family: 'Special Elite', cursive;
+    font-size: 0.8rem;
+    color: #c70039;
+    margin-top: 10px;
+}
+
+/* Listas e Serviços */
+.car-list {
+    list-style: none;
+    margin-top: 8px;
+    font-size: 0.9rem;
+}
+
+.car-list li {
+    padding: 4px 0;
+    border-bottom: 1px dotted #ffb6c1;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.service-item {
+    background: #fff0f5;
+    padding: 8px;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #ffb6c1;
+}
+
+.service-item .icon {
+    font-size: 1.4rem;
+    display: block;
+}
+
+.service-item strong {
+    font-size: 0.8rem;
+    color: #8b0000;
+}
+
+.service-item p {
+    font-size: 0.75rem;
+}
+
+/* Fórmula */
+.formula-box {
+    background: #2b000e;
+    color: #ffb6c1;
+    text-align: center;
     padding: 10px;
-    border-radius: 5px;
-    text-align: center;
-    margin-top: auto;
+    border-radius: 8px;
+    margin: 10px 0;
+    font-family: 'Special Elite', cursive;
+    font-size: 1.3rem;
+    border: 2px dashed #ff1493;
 }
 
-.graph-placeholder, .services-icons, .cars-group {
-    text-align: center;
-    font-size: 2em;
-    margin-top: auto;
+.formula-legend {
+    font-size: 0.8rem;
+    list-style: none;
 }
 
-/* Stickers e Decorações */
-.sticker {
+.formula-legend li {
+    margin-bottom: 4px;
+}
+
+/* SVG Graph */
+.graph-container {
+    background: #fff;
+    border: 1px solid #ffb6c1;
+    border-radius: 8px;
+    margin-top: 8px;
+    padding: 5px;
+}
+
+.svg-graph {
+    width: 100%;
+    height: auto;
+}
+
+/* Calculadora Interativa */
+.calc-box {
+    background: #fff0f5;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ffb6c1;
+    font-size: 0.85rem;
+}
+
+.margin-top {
+    margin-top: 10px;
+}
+
+.calc-box input {
     width: 60px;
-    height: 40px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    position: absolute;
+    padding: 4px;
+    border: 1px solid #8b0000;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: bold;
 }
 
-/* SUBSTITUA ESTAS URLS PELAS SUAS IMAGENS DE CARROS */
-.car-sticker-1 {
-    background-image: url('URL_DA_SUA_IMAGEM_DE_CARRO_1.png');
-    bottom: 5px;
-    right: 5px;
+.calc-box button {
+    background: #8b0000;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    margin-top: 5px;
+    transition: 0.2s;
 }
 
-.car-sticker-2 {
-    background-image: url('URL_DA_SUA_IMAGEM_DE_CARRO_2.png');
-    bottom: 5px;
-    right: 5px;
+.calc-box button:hover {
+    background: #ff1493;
 }
 
-/* Stickers Flutuantes (Soltos) */
-.floating-sticker {
-    position: absolute;
-    font-size: 3em;
-    z-index: 10;
+.res-text {
+    font-weight: bold;
+    color: #c70039;
+    margin-top: 5px;
 }
 
-.car-free-1 { top: 10%; left: -50px; transform: rotate(-15deg); }
-.car-free-2 { bottom: 10%; right: -50px; transform: rotate(15deg); }
+/* Stickers Arrastáveis */
+.draggable-sticker {
+    position: fixed;
+    font-size: 2.5rem;
+    cursor: grab;
+    z-index: 100;
+    user-select: none;
+    filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.3));
+}
+
+.sticker-1 { top: 15%; left: 3%; }
+.sticker-2 { top: 40%; right: 3%; }
+.sticker-3 { bottom: 15%; left: 3%; }
+.sticker-4 { bottom: 20%; right: 3%; }
 
 /* Rodapé */
-.game-footer {
-    border-top: 4px solid #000;
-    margin-top: 20px;
-    padding-top: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.vintage-footer {
+    margin-top: 30px;
+    border-top: 3px dashed #c70039;
+    padding-top: 20px;
+    text-align: center;
 }
 
-.trophy-section {
-    display: flex;
-    align-items: center;
-    font-size: 1.2em;
-    color: #ffcc00;
-    text-shadow: 1px 1px 0 #000;
+.trophy-box h3 {
+    font-family: 'Playfair Display', serif;
+    color: #8b0000;
+    font-size: 1.2rem;
+    margin-top: 5px;
+}
+
+.trophy {
+    font-size: 1.8rem;
 }
 
 .motto {
-    background-color: #333;
-    color: #fff;
-    padding: 10px;
-    border-radius: 5px;
+    background: #8b0000;
+    color: #fff0f5;
+    display: inline-block;
+    padding: 8px 15px;
+    border-radius: 20px;
     font-weight: bold;
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+.sub-motto {
+    font-size: 0.8rem;
+    color: #777;
+    margin-top: 8px;
 }
